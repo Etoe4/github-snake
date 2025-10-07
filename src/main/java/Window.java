@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import javax.swing.*;
 public class Window extends JPanel  {
     final int HEIGHT = 1000;
@@ -6,9 +7,11 @@ public class Window extends JPanel  {
     JFrame f = new JFrame();
 
     public Window(){
+
     }
     public void addComponent(Component component) {
         f.add(component);
+
     }
     public void drawWindow()
     {
@@ -16,4 +19,9 @@ public class Window extends JPanel  {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
     }
+    @Override
+    protected void paintComponent(Graphics g){
+
+    }
+
 }
