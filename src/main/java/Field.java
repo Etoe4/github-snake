@@ -1,30 +1,33 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.*;
+import java.awt.geom.Rectangle2D;
+
 // ИДЕЯ ЗМЕЙКА СЫН КЛАССА ВСЕГО ПОЛЯ, ЧТОБЫ СОХРАНИТЬ КОРДИНАТЫ
 public class Field extends JPanel {
+    int fieldSizeX;
+    int fieldSizeY;
 
-    final int SIZE = 100;
-    final Color COLOR = Color.green;
-    int x_squires = 6;
-    int y_squires = 6;
-    final int DISTANCE_BETWEEN_X = 130;
-    Field(){
-    }
-
-    public void drawSquire(Graphics2D g2d, int position_x, int position_y){
-        g2d.setColor(COLOR);
-        Rectangle2D squire = new Rectangle2D.Double(position_x, position_y, SIZE, SIZE);
-        g2d.fill(squire);
+    Field(int fieldSizeX, int fieldSizeY){
+        this.fieldSizeX = fieldSizeX;
+        this.fieldSizeY = fieldSizeY;
     }
 
     @Override
     protected void paintComponent(Graphics g){
-    Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.red);
-    Rectangle2D squire = new Rectangle2D.Double(0, 0, 111, 111);
+        Graphics2D g2d = (Graphics2D) g;
+        Layout layout = new Layout();
+        for (int i = 0; i < fieldSizeX; i++) {
+            for (int j = 0; j < fieldSizeY; j++) {
+                draw(g2d, layout, i, j);
+            }
+        }
+    }
+    public void draw(Graphics2D g2d, Layout layout, int row, int col){
+        int x = layout.GetCellX(col);
+        int y = layout.GetCellY(row);
+        int size = layout.getCellsSize();
+        g2d.setColor(Color.green);
+        Rectangle2D squire = new Rectangle2D.Double(x, y, size, size);
         g2d.fill(squire);
     }
 }
-
-

@@ -11,7 +11,6 @@ public class Window extends JPanel  {
     }
     public void addComponent(Component component) {
         f.add(component);
-
     }
     public void drawWindow()
     {
