@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-// ИДЕЯ ЗМЕЙКА СЫН КЛАССА ВСЕГО ПОЛЯ, ЧТОБЫ СОХРАНИТЬ КОРДИНАТЫ
 public class Field extends JPanel {
     int fieldSizeX;
     int fieldSizeY;
